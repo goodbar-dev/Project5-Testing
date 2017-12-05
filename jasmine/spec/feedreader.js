@@ -122,7 +122,7 @@ $(function() {
        //load first feed and capture header.
        beforeEach(function(done) {
          loadFeed(0, function() {
-           originalHeader = $('.header').text();
+           originalHeader = $('.feed').text();
            done();
          });
        });
@@ -136,7 +136,7 @@ $(function() {
 
        //check if the header captured originally differs from the current one.
        it('has new content when feed changes', function(done) {
-         expect($('.header').text() != originalHeader).toBe(true);
+         expect($('.feed').text() != originalHeader).toBe(true);
          done();
        });
     });
