@@ -98,9 +98,8 @@ $(function() {
          });
 
          //check if the currently selected feed has at least one article.
-         it('has at least a single entry', function(done) {
+         it('has at least a single entry', function() {
            expect($('.feed .entry-link .entry').length > 0).toBe(true);
-           done();
          });
     });
 
