@@ -94,9 +94,7 @@ $(function() {
 
          //load the first feed
          beforeEach(function(done) {
-           loadFeed(0, function() {
-             done();
-           });
+           loadFeed(0, done);
          });
 
          //check if the currently selected feed has at least one article.
