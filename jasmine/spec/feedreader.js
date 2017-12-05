@@ -99,7 +99,7 @@ $(function() {
 
          //check if the currently selected feed has at least one article.
          it('has at least a single entry', function(done) {
-           expect($('.feed').children().length > 0).toBe(true);
+           expect($('.feed .entry-link .entry').length > 0).toBe(true);
            done();
          });
     });
