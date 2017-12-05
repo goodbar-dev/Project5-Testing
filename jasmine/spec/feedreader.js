@@ -85,17 +85,21 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+
+         //ensure there is at least one feed before proceeding
          it('has at least one feed', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length > 0).toBe(true);
          });
 
+         //load the first feed
          beforeEach(function(done) {
            loadFeed(0, function() {
              done();
            });
          });
 
+         //check if the currently selected feed has at least one article.
          it('has at least a single entry', function(done) {
            expect($('.feed').children().length > 0).toBe(true);
            done();
@@ -109,6 +113,8 @@ $(function() {
        * by the loadFeed function that the content actually changes.
        * Remember, loadFeed() is asynchronous.
        */
+
+       //ensure there is more than one feed before performing further tests.
        it('has more than 1 possible feeds', function() {
           expect(allFeeds).toBeDefined();
           expect(allFeeds.length > 1).toBe(true);
@@ -116,6 +122,7 @@ $(function() {
 
        let originalHeader = 'Start';
 
+       //load first feed and capture header.
        beforeEach(function(done) {
          loadFeed(0, function() {
            originalHeader = $('.header').text();
@@ -123,12 +130,14 @@ $(function() {
          });
        });
 
+       //load second feed.
        beforeEach(function(done) {
          loadFeed(1, function() {
            done();
          });
        });
 
+       //check if the header captured originally differs from the current one.
        it('has new content when feed changes', function(done) {
          expect($('.header').text() != originalHeader).toBe(true);
          done();
